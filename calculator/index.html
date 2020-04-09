@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Counter</title>  
+  <script type="text/javascript">
+
+    let str1;
+    let str2;
+    let sign = '';
+    let temp = "";
+
+    function getNum(n) {
+        temp += n;
+        document.getElementById('fruit').value = temp;
+    };
+    
+    function getSign(s) {
+        sign = s;
+        str1 = temp;
+        temp = "";
+        document.getElementById('fruit').value = sign;
+    };
+
+    function counter() {
+        str2 = temp;
+        document.getElementById('fruit').value = temp;
+        temp = "";
+        let result = 0;
+        let n1 = parseInt(str1);
+        let n2 = parseInt(str2);
+        switch(sign) {
+            case '+':
+                result = n1 + n2;
+                break;
+            case '-':
+                result = n1 - n2;
+                break;
+            case '*':
+                result = n1 * n2;
+                break;
+            case '/':
+                result = n1 / n2;
+                break;
+        }
+        document.getElementById('fruit').value = result;
+    };
+
+    function clean() {
+        str1 = "";
+        str2 = "";
+        temp = "";
+        document.getElementById('fruit').value = 0;
+    }
+  </script> 
+ </head> 
+ <link rel="stylesheet" type="text/css" href="cStyle.css">
+ <body>
+    <table >
+        <tr ><td colspan="4"><input type="text" id="fruit" style="width: 200px;"/></td></tr>
+        <tr>
+            <td><input type="button" id="num1" value='1' onclick="getNum(1)"/></td>
+            <td><input type="button" id="num2" value='2' onclick="getNum(2)"/></td>
+            <td><input type="button" id="num3" value='3' onclick="getNum(3)"/></td>
+            <td><input type="button" id="add" value='+' onclick="getSign('+')"/></td>
+        </tr>
+        <tr><td><input type="button" id="num4" value='4' onclick="getNum(4)"/></td>
+            <td><input type="button" id="num5" value='5' onclick="getNum(5)"/></td>
+            <td><input type="button" id="num6" value='6' onclick="getNum(6)"/></td>
+            <td><input type="button" id="sub" value='-' onclick="getSign('-')"/></td>
+        </tr>
+        <tr><td><input type="button" id="num7" value='7' onclick="getNum(7)"/></td>
+            <td><input type="button" id="num8" value='8' onclick="getNum(8)"/></td>
+            <td><input type="button" id="num9" value='9' onclick="getNum(9)"/></td>
+            <td><input type="button" id="mult" value='*' onclick="getSign('*')"/></td>
+        </tr>
+        <tr><td><input type="button" id="num0" value='0' onclick="getNum(0)"/></td>
+            <td><input type="button" id="clean" value='C' onclick="clean()"/></td>
+            <td><input type="button" id="equl" value='=' onclick="counter()"/></td>
+            <td><input type="button" id="div" value='/' onclick="getSign('/')"/></td>
+        </tr>
+    </table>
+ </body>
+</html>
